@@ -36,7 +36,7 @@ public partial class TicTacToeLogic : Node
 
 		board[i, j] = currentSymbol;
 		Button currentButton = GetNode("/root/Main/Buttons").GetNode<Button>($"{i}x{j}");
-		currentButton.Text = SymbolToString(currentSymbol);
+		currentButton.GetNode<AnimatedSprite2D>("Mark").Play(SymbolToString(currentSymbol));
 		currentButton.Disabled = true;
 
 		ToggleSymbol();

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dorow8j78c278"]
+[gd_scene load_steps=3 format=3 uid="uid://dorow8j78c278"]
 
 [ext_resource type="Script" path="res://scripts/TicTacToeLogic.cs" id="1_1jk2k"]
+[ext_resource type="PackedScene" uid="uid://coca04p7q3q1m" path="res://mark.tscn" id="2_126ju"]
 
 [node name="Main" type="Node2D"]
 
@@ -21,11 +22,19 @@ offset_right = 164.0
 offset_bottom = 356.0
 scale = Vector2(1, 0.960858)
 
+[node name="Mark" parent="Buttons/0x0" instance=ExtResource("2_126ju")]
+position = Vector2(50, 50)
+scale = Vector2(0.25, 0.25)
+
 [node name="0x1" type="Button" parent="Buttons"]
 offset_left = 174.0
 offset_top = 256.0
 offset_right = 274.0
 offset_bottom = 356.0
+
+[node name="Mark" parent="Buttons/0x1" instance=ExtResource("2_126ju")]
+position = Vector2(50, 50)
+scale = Vector2(0.25, 0.25)
 
 [node name="0x2" type="Button" parent="Buttons"]
 offset_left = 284.0
@@ -33,11 +42,19 @@ offset_top = 256.0
 offset_right = 384.0
 offset_bottom = 356.0
 
+[node name="Mark" parent="Buttons/0x2" instance=ExtResource("2_126ju")]
+position = Vector2(50, 50)
+scale = Vector2(0.25, 0.25)
+
 [node name="1x0" type="Button" parent="Buttons"]
 offset_left = 64.0
 offset_top = 366.0
 offset_right = 164.0
 offset_bottom = 466.0
+
+[node name="Mark" parent="Buttons/1x0" instance=ExtResource("2_126ju")]
+position = Vector2(50, 50)
+scale = Vector2(0.25, 0.25)
 
 [node name="1x1" type="Button" parent="Buttons"]
 offset_left = 174.0
@@ -45,11 +62,19 @@ offset_top = 366.0
 offset_right = 274.0
 offset_bottom = 466.0
 
+[node name="Mark" parent="Buttons/1x1" instance=ExtResource("2_126ju")]
+position = Vector2(50, 50)
+scale = Vector2(0.25, 0.25)
+
 [node name="1x2" type="Button" parent="Buttons"]
 offset_left = 284.0
 offset_top = 366.0
 offset_right = 384.0
 offset_bottom = 466.0
+
+[node name="Mark" parent="Buttons/1x2" instance=ExtResource("2_126ju")]
+position = Vector2(50, 50)
+scale = Vector2(0.25, 0.25)
 
 [node name="2x0" type="Button" parent="Buttons"]
 offset_left = 64.0
@@ -57,17 +82,29 @@ offset_top = 476.0
 offset_right = 164.0
 offset_bottom = 576.0
 
+[node name="Mark" parent="Buttons/2x0" instance=ExtResource("2_126ju")]
+position = Vector2(50, 50)
+scale = Vector2(0.25, 0.25)
+
 [node name="2x1" type="Button" parent="Buttons"]
 offset_left = 174.0
 offset_top = 476.0
 offset_right = 274.0
 offset_bottom = 576.0
 
+[node name="Mark" parent="Buttons/2x1" instance=ExtResource("2_126ju")]
+position = Vector2(50, 50)
+scale = Vector2(0.25, 0.25)
+
 [node name="2x2" type="Button" parent="Buttons"]
 offset_left = 284.0
 offset_top = 476.0
 offset_right = 384.0
 offset_bottom = 576.0
+
+[node name="Mark" parent="Buttons/2x2" instance=ExtResource("2_126ju")]
+position = Vector2(50, 50)
+scale = Vector2(0.25, 0.25)
 
 [node name="Labels" type="Node2D" parent="."]
 
