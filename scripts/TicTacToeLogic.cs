@@ -9,6 +9,8 @@ public partial class TicTacToeLogic : Node
 		O		= 1
 	}
 
+	private static Color WIN_BG_COLOR = Colors.LightCoral;
+
 	private static string SymbolToString(Symbol symbol) {
 		switch (symbol) {
 			case Symbol.X:
@@ -45,23 +47,42 @@ public partial class TicTacToeLogic : Node
 		PrintBoard();
 	}
 
+	private void SetButtonBackgroudToColor(int i, int j, Color color)
+	{
+		Button button = GetNode("/root/Main/Buttons").GetNode<Button>($"{i}x{j}");
+
+		var theme = new Theme();
+		var style = new StyleBoxFlat() { BgColor = color};
+		theme.Set("Button/styles/disabled", style);
+		button.Theme = theme;
+	}
+
 	private bool CheckHaveTheWinner() 
 	{
 		// Check all rows
 		// \
 		if (board[0,0] != Symbol.NONE && board[0,0] == board[1,1] && board[1,1] == board[2,2]) {
 			winner = board[1,1];
+			SetButtonBackgroudToColor(0, 0, WIN_BG_COLOR);
+			SetButtonBackgroudToColor(1, 1, WIN_BG_COLOR);
+			SetButtonBackgroudToColor(2, 2, WIN_BG_COLOR);
 			return true;
 		}
 		// /
 		if (board[0,2] != Symbol.NONE && board[0,2] == board[1,1] && board[1,1] == board[2,0]) {
 			winner = board[1,1];
+			SetButtonBackgroudToColor(0, 2, WIN_BG_COLOR);
+			SetButtonBackgroudToColor(1, 1, WIN_BG_COLOR);
+			SetButtonBackgroudToColor(2, 0, WIN_BG_COLOR);
 			return true;
 		}
 		// |
 		for (int j = 0; j < board.GetLength(1); j++) {
 			if (board[0,j] != Symbol.NONE && board[0,j] == board[1,j] && board[1,j] == board[2,j]) {
 				winner = board[0,j];
+				SetButtonBackgroudToColor(0, j, WIN_BG_COLOR);
+				SetButtonBackgroudToColor(1, j, WIN_BG_COLOR);
+				SetButtonBackgroudToColor(2, j, WIN_BG_COLOR);
 				return true;
 			}
 		}
@@ -69,6 +90,9 @@ public partial class TicTacToeLogic : Node
 		for (int i = 0; i < board.GetLength(0); i++) {
 			if (board[i, 0] != Symbol.NONE && board[i,0] == board[i,1] && board[i,1] == board[i,2]) {
 				winner = board[i,0];
+				SetButtonBackgroudToColor(i, 0, WIN_BG_COLOR);
+				SetButtonBackgroudToColor(i, 1, WIN_BG_COLOR);
+				SetButtonBackgroudToColor(i, 2, WIN_BG_COLOR);
 				return true;
 			}
 		}
@@ -101,8 +125,8 @@ public partial class TicTacToeLogic : Node
 		PrintBoard();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
 	}
 }
